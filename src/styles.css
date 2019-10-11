@@ -35,5 +35,15 @@ body {
 
 .portal {
   height: 30% !important;
+}
+
+.portal:not(:first-child) {
+  width: 50% !important;
+  display: inline !important;
   float: left;
+}
+
+h1{
+  width: 50%;
+  margin: auto;
 }
