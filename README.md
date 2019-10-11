@@ -1,4 +1,4 @@
-### Hanoi tower game using Zdog and React Hooks, deployed with Firebase Hosting.
+### A game using Zdog and React Hooks, deployed with Firebase Hosting.
 
 ```
 npm run build && rm -rf deploy/public/* && mv -rf build/* deploy/public/
@@ -16,4 +16,4 @@ Or, as we say in spanish:
 
 ```
 alias leña='npm run build && rm -rf deploy/public/* && mv -rf build/* deploy/public/' 
-```
+``
