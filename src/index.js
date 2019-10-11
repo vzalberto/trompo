@@ -7,7 +7,7 @@ import './styles.css'
 // TAU representa una vuelta completa a un círculo, a.k.a. 360º
 const TAU = Math.PI * 2
 
-function Hanoi (props) {
+function Trompo (props) {
   const [discs, setDiscs] = useState(props.discs)
   const [aux, setAux] = useState({})
 
@@ -44,9 +44,9 @@ function Hanoi (props) {
 
 ReactDOM.render(
   <div id="container">
-    <Hanoi discs={[{diameter:70,backface:"#E6C229"}, {diameter:60,backface:"#3F8EFC"}, {diameter:10,backface:"#F45D01"}]} zoom={3}/>
-    <Hanoi discs={[{diameter:70,backface:"#D72638"}, {diameter:60,backface:"#E6C229"}, {diameter:50,backface:"#F58A07"}, {diameter:40,backface:"#8EA604"}, {diameter:30,backface:"#00A6ED"}, {diameter:20,backface:"#006BA6"}, {diameter:10,backface:"#EF476F"}]} zoom={3}/>
-    <Hanoi discs={[{diameter:70,backface:"#DCD6F7"}, {diameter:60,backface:"#499F68"}, {diameter:50,backface:"#FFF3B0"}, {diameter:40,backface:"#2B3A67"}, {diameter:10,backface:"#BA3F1D"}]} zoom={3}/>
+    <Trompo discs={[{diameter:70,backface:"#E6C229"}, {diameter:60,backface:"#3F8EFC"}, {diameter:10,backface:"#F45D01"}]} zoom={3}/>
+    <Trompo discs={[{diameter:70,backface:"#D72638"}, {diameter:60,backface:"#E6C229"}, {diameter:50,backface:"#F58A07"}, {diameter:40,backface:"#8EA604"}, {diameter:30,backface:"#00A6ED"}, {diameter:20,backface:"#006BA6"}, {diameter:10,backface:"#EF476F"}]} zoom={3}/>
+    <Trompo discs={[{diameter:70,backface:"#DCD6F7"}, {diameter:60,backface:"#499F68"}, {diameter:50,backface:"#FFF3B0"}, {diameter:40,backface:"#2B3A67"}, {diameter:10,backface:"#BA3F1D"}]} zoom={3}/>
   </div>
  ,
   document.getElementById('root')
