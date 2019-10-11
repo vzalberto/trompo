@@ -15,5 +15,5 @@ In a way, it is like preparing a log for your fireplace 🔥.
 Or, as we say in spanish:
 
 ```
-alias leña='npm run build && rm -rf deploy/public/* && mv -rf build/* deploy/public/' 
+alias leña='npm run build && rm -rf deploy/public/* && cp -rf build/* deploy/public/' 
 ```

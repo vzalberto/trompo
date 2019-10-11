@@ -37,13 +37,27 @@ body {
   height: 30% !important;
 }
 
+/*Los elementos de abajo se alinean para construir un triángulo*/
 .portal:not(:first-child) {
   width: 50% !important;
   display: inline !important;
   float: left;
 }
 
+.portal:first-child{
+  background-color: #BAC7BE
+}
+
+.portal:nth-child(2){
+  background-color: #939196
+}
+.portal:nth-child(3){
+  background-color: #5E5768
+}
+
 h1{
+  padding: 3em 0;
   width: 50%;
   margin: auto;
+  line-height: 1.5em;
 }

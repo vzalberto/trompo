@@ -15,7 +15,6 @@ function Trompo (props) {
   const pizza = () => {
     console.log(aux)
 
-
     const disc = discs[discs.length - 1]
 
     setAux({disc})
@@ -30,7 +29,7 @@ function Trompo (props) {
       diameter={d.diameter} 
       translate={{z:3*i}} 
       length={3} 
-      color="#7c2c22" 
+      color={d.color || "#7c2c22"} 
       stroke={false} 
       backface={d.backface} />
   });
@@ -46,7 +45,7 @@ ReactDOM.render(
   <div id="container">
     <Trompo discs={[{diameter:70,backface:"#f3de72"}, {diameter:60,backface:"#c1572f"}, {diameter:10,backface:"#c1ad90"}]} zoom={3}/>
     <Trompo discs={[{diameter:70,backface:"#D72638"}, {diameter:60,backface:"#E6C229"}, {diameter:50,backface:"#F58A07"}, {diameter:40,backface:"#8EA604"}, {diameter:30,backface:"#00A6ED"}, {diameter:20,backface:"#006BA6"}, {diameter:10,backface:"#EF476F"}]} zoom={3}/>
-    <Trompo discs={[{diameter:70,backface:"#DCD6F7"}, {diameter:60,backface:"#499F68"}, {diameter:50,backface:"#FFF3B0"}, {diameter:40,backface:"#2B3A67"}, {diameter:10,backface:"#BA3F1D"}]} zoom={3}/>
+    <Trompo discs={[{diameter:70,backface:"#f3de72"}, {diameter:60,backface:"#6c1a10", color:"#000"}, {diameter:50,backface:"#c1572f"}, {diameter:40,backface:"#E6C229"}, {diameter:10,backface:"#c1ad90"}]} zoom={3}/>
   </div>
  ,
   document.getElementById('root')

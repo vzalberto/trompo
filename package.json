@@ -14,7 +14,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "fuego": "npm run build && rm -rf deploy/public/* && cp -rf build/* deploy/public/ && cd deploy && firebase deploy && cd .."
   },
   "eslintConfig": {
     "extends": "react-app"
