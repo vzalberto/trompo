@@ -1,5 +1,8 @@
 ### A game using Zdog and React Hooks, deployed with Firebase Hosting.
 
+[PLAY HERE](http://hanoi-dog.firebaseapp.com)
+
+
 ```
 npm run build && rm -rf deploy/public/* && mv -rf build/* deploy/public/
 ```
