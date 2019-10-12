@@ -23,7 +23,7 @@ body,
 #root {
   overflow: auto;
 }
-#container, #container > div{
+#container, #container > div {
   height: inherit
 }
 
@@ -33,13 +33,19 @@ body {
   overscroll-behavior-y: none;
 }
 
-.portal {
-  height: 30% !important;
-}
 
 /*Los elementos de abajo se alinean para construir un triángulo*/
-.portal:not(:first-child) {
+/* .hanoi:not(:first-child) {
   width: 50% !important;
+  
+  display: inline !important;
+  float: left;
+} */
+
+/*Los elementos de abajo se alinean para construir un triángulo*/
+.hanoi{
+  width: 30% !important;
+  cursor: pointer;
   display: inline !important;
   float: left;
 }
@@ -74,4 +80,16 @@ h3{
   width: 50%;
   text-align: center;
   margin: 16em;
+}
+
+.hanoi{
+  height: inherit;
+}
+
+.hanoi:hover{
+  background-color: aliceblue;
+}
+
+.hand{
+  height: 20%;
 }
