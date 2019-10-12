@@ -44,7 +44,7 @@ body {
   float: left;
 }
 
-.portal:first-child{
+/*.portal:first-child{
   background-color: #BAC7BE
 }
 
@@ -54,10 +54,24 @@ body {
 .portal:nth-child(3){
   background-color: #5E5768
 }
-
-h1{
-  padding: 3em 0;
+*/
+p{
   width: 50%;
   margin: auto;
   line-height: 1.5em;
+  text-align: center;
+}
+p:first-child{
+  padding-top: 1.5em;
+}
+h2{
+  width: 30%;
+  text-align: center;
+  margin: auto;
+}
+h3{
+  display: inline;
+  width: 50%;
+  text-align: center;
+  margin: 16em;
 }
