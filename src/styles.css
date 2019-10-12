@@ -23,7 +23,7 @@ body,
 #root {
   overflow: auto;
 }
-#container{
+#container, #container > div{
   height: inherit
 }
 
