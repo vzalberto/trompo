@@ -151,6 +151,8 @@ const Hanoi = () => {
         {
         alert("🌮🌮🌮 movimientos:" + moveCount )
         setMoveCount(0)
+
+        setIlloRotation({x:TAU/9})
         }
       else
         alert('😳😡👎')
@@ -163,7 +165,7 @@ const Hanoi = () => {
     else if (torreB.length == 6 || torreC.length == 6) {
       alert('😮😮😮 movimientos:' + moveCount)
       setMoveCount(0)
-      setIlloRotation({z:TAU/6})
+      setIlloRotation({x:TAU/4})
 
 
     }
