@@ -58,7 +58,7 @@ const Trompo = (props) => {
   }) : '';
 
   return (
-      <Illustration className={"portal"} dragRotete={true} zoom={props.zoom} rotate={{ x: TAU / 8 }}>
+      <Illustration className={"portal"} dragRotete={true} zoom={props.zoom} rotate={props.rotation}>
         {discos}
       </Illustration>
   )
@@ -67,17 +67,20 @@ const Trompo = (props) => {
 const Hanoi = () => {
 
   const initDiscos = {
-    a: [{diameter:70,backface:"#f3de72", }, {diameter:60,backface:"#782d21"}, {diameter:10,backface:"#e5af2a", color:"#71471f"}],
+    a: [{diameter:70,backface:"#f3de72", }, {diameter:60,backface:"#782d21"}, {diameter:50,backface:"#c1572f"}, {diameter:10,backface:"#e5af2a", color:"#71471f"}],
     b: [{diameter:20,backface:"#63b043", color:"#377d1e"}],
-    c: [{diameter:50,backface:"#c1572f"}, {diameter:40,backface:"#ffa500", color:"#573a29"}],
+    c: [ {diameter:40,backface:"#ffa500", color:"#573a29"}],
     d: []
   }
 
-  const ordenCorrecto = [initDiscos.a[0], initDiscos.a[1], initDiscos.c[0], initDiscos.c[1], initDiscos.b[0], initDiscos.a[2]]
+  const ordenCorrecto = [initDiscos.a[0], initDiscos.a[1], initDiscos.a[2], initDiscos.c[0], initDiscos.b[0], initDiscos.a[3]]
 
   const [torreA, setTorreA] = useState(initDiscos.a)
   const [torreB, setTorreB] = useState(initDiscos.b)
   const [torreC, setTorreC] = useState(initDiscos.c)
+  const [moveCount, setMoveCount] = useState(0)
+
+  const [illoRotation, setIlloRotation] = useState({x: TAU / 7})
 
   const [aux, setAux] = useState(initDiscos.d)
 
@@ -88,9 +91,13 @@ const Hanoi = () => {
         setTorreA(torreA)
       }
     }else{
+      if( torreA.length == 0 || torreA[torreA.length-1].diameter > aux[0].diameter){ 
       torreA.push(aux[0])
+
+      setMoveCount(moveCount + 1)
       setTorreA(torreA)
       setAux([])
+    }
     }
   }
 
@@ -98,12 +105,19 @@ const Hanoi = () => {
      if (aux.length === 0){
 
       if(torreB.length > 0){ 
-      setAux ([torreB.pop()])
-      setTorreB(torreB)}
+
+
+          setAux ([torreB.pop()])
+          setTorreB(torreB)
+        
+    }
     }else{
+      if( torreB.length == 0 || torreB[torreB.length-1].diameter > aux[0].diameter){ 
       torreB.push(aux[0])
+      setMoveCount(moveCount + 1)
       setTorreB(torreB)
       setAux([])
+    }
     }
   }
 
@@ -114,10 +128,13 @@ const Hanoi = () => {
       setAux ([torreC.pop()])
       setTorreC(torreC)
     }
-    }else{
+    }else{if( torreC.length == 0 || torreC[torreC.length-1].diameter > aux[0].diameter){ 
       torreC.push(aux[0])
+
+      setMoveCount(moveCount + 1)
       setTorreC(torreC)
       setAux([])
+    }
     }
   }
 
@@ -127,11 +144,14 @@ const Hanoi = () => {
     console.log('torre B: ', torreB)
     console.log('torre C: ', torreC)
 
-    if(torreA.length == 6|| torreB.length == 6 || torreC.length == 6){
+    if(torreA.length == 6 ){
       //Si alguna torre está en el orden correcto, win
-      console.log(torreA, ordenCorrecto)
-      if (arraysEqual(torreA, ordenCorrecto) ||arraysEqual(torreB, ordenCorrecto) ||arraysEqual(torreC, ordenCorrecto)) 
-        alert('🌮🌮🌮')
+
+      if (arraysEqual(torreA, ordenCorrecto) )
+        {
+        alert("🌮🌮🌮 movimientos:" + moveCount )
+        setMoveCount(0)
+        }
       else
         alert('😳😡👎')
 
@@ -139,14 +159,22 @@ const Hanoi = () => {
       setTorreB(initDiscos.b)
       setTorreC(initDiscos.c)
     }
+
+    else if (torreB.length == 6 || torreC.length == 6) {
+      alert('😮😮😮 movimientos:' + moveCount)
+      setMoveCount(0)
+      setIlloRotation({z:TAU/6})
+
+
+    }
   }, [aux, torreA, torreB, torreC])
 
   return (
       <div>
-        <div className={"hand"}><Trompo discs={aux || []} zoom={1}/></div>
-        <div className={"hanoi"} onClick={toggleA}><Trompo discs={torreA} zoom={3} /></div>
-        <div className={"hanoi"} onClick={toggleB}><Trompo discs={torreB} zoom={3} /></div>
-        <div className={"hanoi"} onClick={toggleC}><Trompo discs={torreC} zoom={3} /></div>
+        <div className={"hand"}><Trompo discs={aux || []} zoom={1} rotation={illoRotation}/></div>
+        <div className={"hanoi"} onClick={toggleA}><Trompo discs={torreA} zoom={3} rotation={illoRotation}/></div>
+        <div className={"hanoi"} onClick={toggleB}><Trompo discs={torreB} zoom={3} rotation={illoRotation}/></div>
+        <div className={"hanoi"} onClick={toggleC}><Trompo discs={torreC} zoom={3} rotation={illoRotation}/></div>
       </div>
       )
 } 
