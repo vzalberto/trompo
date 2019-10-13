@@ -162,12 +162,16 @@ const Hanoi = () => {
       setTorreC(initDiscos.c)
     }
 
-    else if (torreB.length == 6 || torreC.length == 6) {
+    else if (torreB.length == 6) {
       alert('😮😮😮 movimientos:' + moveCount)
       setMoveCount(0)
       setIlloRotation({x:TAU/4})
+    }
 
-
+        else if (torreC.length == 6) {
+      alert('😮😮😮 movimientos:' + moveCount)
+      setMoveCount(0)
+      setIlloRotation({x:TAU/5})
     }
   }, [aux, torreA, torreB, torreC])
 
