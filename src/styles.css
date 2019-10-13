@@ -44,10 +44,7 @@ body {
 
 /*Los elementos de abajo se alinean para construir un triángulo*/
 .hanoi{
-  width: 30% !important;
   cursor: pointer;
-  display: inline !important;
-  float: left;
 }
 
 /*.portal:first-child{
@@ -61,6 +58,15 @@ body {
   background-color: #5E5768
 }
 */
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:hover{
+  background-color: #7c2252;
+  color: orange;
+}
 p{
   width: 50%;
   margin: auto;
@@ -83,7 +89,9 @@ h3{
 }
 
 .hanoi{
-  height: inherit;
+  height: 25%;
+  width: 100%;
+
 }
 
 .hanoi:hover{
