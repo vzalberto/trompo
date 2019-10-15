@@ -2,7 +2,11 @@ import ReactDOM from 'react-dom'
 import React, { useState, useEffect } from 'react'
 import { Illustration, Cylinder } from 'react-zdog'
 
+import UIfx from 'uifx';
+import mp3File from './chess.mp3';
 import './styles.css'
+
+import Tone from 'tone';
 
 function isEquivalent(a, b) {
     // Create arrays of property names
@@ -58,13 +62,16 @@ const Trompo = (props) => {
   }) : '';
 
   return (
-      <Illustration className={"portal"} dragRotete={true} zoom={props.zoom} rotate={props.rotation}>
+      <Illustration className={"portal"} dragRotate={true} zoom={props.zoom} rotate={props.rotation}>
         {discos}
       </Illustration>
   )
 }
 
 const Hanoi = () => {
+
+const beep = new UIfx({asset: mp3File});
+const synth = new Tone.Synth().toMaster();
 
   const initDiscos = {
     a: [{diameter:70,backface:"#f3de72", }, {diameter:60,backface:"#782d21"}, {diameter:50,backface:"#c1572f"}, {diameter:10,backface:"#e5af2a", color:"#71471f"}],
@@ -94,6 +101,9 @@ const Hanoi = () => {
       if( torreA.length == 0 || torreA[torreA.length-1].diameter > aux[0].diameter){ 
       torreA.push(aux[0])
 
+      beep.play()
+      synth.triggerAttackRelease("C4", "8n");
+      console.log(beep)
       setMoveCount(moveCount + 1)
       setTorreA(torreA)
       setAux([])
@@ -161,7 +171,6 @@ const Hanoi = () => {
       setTorreB(initDiscos.b)
       setTorreC(initDiscos.c)
     }
-
     else if (torreB.length == 6) {
       alert('😮😮😮 movimientos:' + moveCount)
       setMoveCount(0)
@@ -173,6 +182,7 @@ const Hanoi = () => {
       setMoveCount(0)
       setIlloRotation({x:TAU/5})
     }
+
   }, [aux, torreA, torreB, torreC])
 
   return (
