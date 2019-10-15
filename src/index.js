@@ -15,7 +15,7 @@ function isEquivalent(a, b) {
 
     // If number of properties is different,
     // objects are not equivalent
-    if (aProps.length != bProps.length) {
+    if (aProps.length !== bProps.length) {
         return false;
     }
 
@@ -97,19 +97,22 @@ const synth3 = new Tone.Synth().toMaster();
      if (aux.length === 0){
       if(torreA.length > 0){       
         setAux ([torreA.pop()])
+        synth.triggerAttackRelease("c4", "8n");
         setTorreA(torreA)
       }
     }else{
-      if( torreA.length == 0 || torreA[torreA.length-1].diameter > aux[0].diameter){ 
+      if( torreA.length === 0 || torreA[torreA.length-1].diameter > aux[0].diameter){ 
       torreA.push(aux[0])
 
-      beep.play()
       synth.triggerAttackRelease("g3", "8n");
-      console.log(beep)
       setMoveCount(moveCount + 1)
       setTorreA(torreA)
       setAux([])
     }
+        else{
+          synth.triggerAttackRelease("c3", "8n");
+          synth2.triggerAttackRelease("f#3", "8n");
+        }
     }
   }
 
@@ -118,19 +121,24 @@ const synth3 = new Tone.Synth().toMaster();
 
       if(torreB.length > 0){ 
 
+      synth.triggerAttackRelease("b3", "8n");
 
           setAux ([torreB.pop()])
           setTorreB(torreB)
         
     }
     }else{
-      if( torreB.length == 0 || torreB[torreB.length-1].diameter > aux[0].diameter){ 
+      if( torreB.length === 0 || torreB[torreB.length-1].diameter > aux[0].diameter){ 
       torreB.push(aux[0])
       synth.triggerAttackRelease("e3", "8n");
       setMoveCount(moveCount + 1)
       setTorreB(torreB)
       setAux([])
     }
+        else{
+          synth.triggerAttackRelease("c3", "8n");
+          synth2.triggerAttackRelease("f#3", "8n");
+        }
     }
   }
 
@@ -138,18 +146,26 @@ const synth3 = new Tone.Synth().toMaster();
      if (aux.length === 0){
 
       if(torreC.length > 0){ 
+
+      synth.triggerAttackRelease("a3", "8n");
       setAux ([torreC.pop()])
       setTorreC(torreC)
     }
-    }else{if( torreC.length == 0 || torreC[torreC.length-1].diameter > aux[0].diameter){ 
-      torreC.push(aux[0])
+    }else{
 
-      synth.triggerAttackRelease("c3", "8n");
+      if( torreC.length === 0 || torreC[torreC.length-1].diameter > aux[0].diameter){ 
+            torreC.push(aux[0])
 
-      setMoveCount(moveCount + 1)
-      setTorreC(torreC)
-      setAux([])
-    }
+            synth.triggerAttackRelease("c3", "8n");
+
+            setMoveCount(moveCount + 1)
+            setTorreC(torreC)
+            setAux([])
+        }
+        else{
+          synth.triggerAttackRelease("c3", "8n");
+          synth2.triggerAttackRelease("f#3", "8n");
+        }
     }
   }
 
@@ -159,15 +175,11 @@ const synth3 = new Tone.Synth().toMaster();
     console.log('torre B: ', torreB)
     console.log('torre C: ', torreC)
 
-
-
-    if(torreA.length == 6 ){
+    if(torreA.length === 6 ){
       //Si alguna torre está en el orden correcto, win
 
       if (arraysEqual(torreA, ordenCorrecto) )
         {
-
-
 
       synth.triggerAttackRelease("c4", "4n");
 
@@ -177,28 +189,28 @@ const synth3 = new Tone.Synth().toMaster();
         alert("🌮🌮🌮 movimientos:" + moveCount )
         setMoveCount(0)
 
-        setIlloRotation({x:TAU/9})
-        }
-      else
-        alert('😳😡👎')
 
       setTorreA(initDiscos.a)
       setTorreB(initDiscos.b)
       setTorreC(initDiscos.c)
+
+        setIlloRotation({x:TAU/4})
+        }
+
     }
-    else if (torreB.length == 6) {
+    else if (torreB.length === 6) {
       alert('😮😮😮 movimientos:' + moveCount)
       setMoveCount(0)
       setIlloRotation({x:TAU/4})
     }
 
-        else if (torreC.length == 6) {
+        else if (torreC.length === 6) {
       alert('😮😮😮 movimientos:' + moveCount)
       setMoveCount(0)
       setIlloRotation({x:TAU/5})
     }
 
-  }, [aux, torreA, torreB, torreC])
+  }, [aux, torreA, torreB, torreC. initDiscos])
 
   return (
       <div>
