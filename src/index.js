@@ -159,6 +159,8 @@ const synth3 = new Tone.Synth().toMaster();
     console.log('torre B: ', torreB)
     console.log('torre C: ', torreC)
 
+
+
     if(torreA.length == 6 ){
       //Si alguna torre está en el orden correcto, win
 
@@ -170,7 +172,7 @@ const synth3 = new Tone.Synth().toMaster();
       synth.triggerAttackRelease("c4", "4n");
 
       synth2.triggerAttackRelease("e3", "4n");
-      synth3.triggerAttackRelease("g3", "4n");
+      synth3.triggerAttackRelease("c3", "4n");
 
         alert("🌮🌮🌮 movimientos:" + moveCount )
         setMoveCount(0)
