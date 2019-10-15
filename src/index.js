@@ -72,6 +72,8 @@ const Hanoi = () => {
 
 const beep = new UIfx({asset: mp3File});
 const synth = new Tone.Synth().toMaster();
+const synth2 = new Tone.Synth().toMaster();
+const synth3 = new Tone.Synth().toMaster();
 
   const initDiscos = {
     a: [{diameter:70,backface:"#f3de72", }, {diameter:60,backface:"#782d21"}, {diameter:50,backface:"#c1572f"}, {diameter:10,backface:"#e5af2a", color:"#71471f"}],
@@ -102,7 +104,7 @@ const synth = new Tone.Synth().toMaster();
       torreA.push(aux[0])
 
       beep.play()
-      synth.triggerAttackRelease("C4", "8n");
+      synth.triggerAttackRelease("g3", "8n");
       console.log(beep)
       setMoveCount(moveCount + 1)
       setTorreA(torreA)
@@ -124,6 +126,7 @@ const synth = new Tone.Synth().toMaster();
     }else{
       if( torreB.length == 0 || torreB[torreB.length-1].diameter > aux[0].diameter){ 
       torreB.push(aux[0])
+      synth.triggerAttackRelease("e3", "8n");
       setMoveCount(moveCount + 1)
       setTorreB(torreB)
       setAux([])
@@ -140,6 +143,8 @@ const synth = new Tone.Synth().toMaster();
     }
     }else{if( torreC.length == 0 || torreC[torreC.length-1].diameter > aux[0].diameter){ 
       torreC.push(aux[0])
+
+      synth.triggerAttackRelease("c3", "8n");
 
       setMoveCount(moveCount + 1)
       setTorreC(torreC)
@@ -159,6 +164,14 @@ const synth = new Tone.Synth().toMaster();
 
       if (arraysEqual(torreA, ordenCorrecto) )
         {
+
+
+
+      synth.triggerAttackRelease("c4", "4n");
+
+      synth2.triggerAttackRelease("e3", "4n");
+      synth3.triggerAttackRelease("g3", "4n");
+
         alert("🌮🌮🌮 movimientos:" + moveCount )
         setMoveCount(0)
 
