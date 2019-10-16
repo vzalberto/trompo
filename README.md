@@ -2,6 +2,11 @@
 
 [PLAY HERE](http://hanoi-dog.firebaseapp.com)
 
+### Nice to haves
+
+• Accelerometer-based illo rotation to give a sense of depth https://www.npmjs.com/package/react-accelerometer
+• Proper global state management
+• Replace the alerts for better UX
 
 ```
 npm run build && rm -rf deploy/public/* && mv -rf build/* deploy/public/

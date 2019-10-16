@@ -2,8 +2,6 @@ import ReactDOM from 'react-dom'
 import React, { useState, useEffect } from 'react'
 import { Illustration, Cylinder } from 'react-zdog'
 
-import UIfx from 'uifx';
-import mp3File from './chess.mp3';
 import './styles.css'
 
 import Tone from 'tone';
@@ -70,7 +68,6 @@ const Trompo = (props) => {
 
 const Hanoi = () => {
 
-const beep = new UIfx({asset: mp3File});
 const synth = new Tone.Synth().toMaster();
 const synth2 = new Tone.Synth().toMaster();
 const synth3 = new Tone.Synth().toMaster();
@@ -78,9 +75,11 @@ const synth3 = new Tone.Synth().toMaster();
   const initDiscos = {
     a: [{diameter:70,backface:"#f3de72", }, {diameter:60,backface:"#782d21"}, {diameter:50,backface:"#c1572f"}, {diameter:10,backface:"#e5af2a", color:"#71471f"}],
     b: [{diameter:20,backface:"#63b043", color:"#377d1e"}],
-    c: [ {diameter:40,backface:"#ffa500", color:"#573a29"}],
+    c: [{diameter:40,backface:"#ffa500", color:"#573a29"}],
     d: []
   }
+
+  const sounds = {70:'b', 60:'a', 50:'g', 40:'f', 30:'e', 20: 'd', 10:'c'}
 
   const ordenCorrecto = [initDiscos.a[0], initDiscos.a[1], initDiscos.a[2], initDiscos.c[0], initDiscos.b[0], initDiscos.a[3]]
 
@@ -95,16 +94,17 @@ const synth3 = new Tone.Synth().toMaster();
 
   const toggleA = () => {
      if (aux.length === 0){
-      if(torreA.length > 0){       
-        setAux ([torreA.pop()])
-        synth.triggerAttackRelease("c4", "8n");
+      if(torreA.length > 0){  
+      const pop =    torreA.pop()  
+        setAux ([pop])
+      synth.triggerAttackRelease(sounds[pop.diameter]+"4", "8n");
         setTorreA(torreA)
       }
     }else{
       if( torreA.length === 0 || torreA[torreA.length-1].diameter > aux[0].diameter){ 
       torreA.push(aux[0])
 
-      synth.triggerAttackRelease("g3", "8n");
+      synth.triggerAttackRelease(sounds[aux[0].diameter]+"3", "8n");
       setMoveCount(moveCount + 1)
       setTorreA(torreA)
       setAux([])
@@ -121,16 +121,20 @@ const synth3 = new Tone.Synth().toMaster();
 
       if(torreB.length > 0){ 
 
-      synth.triggerAttackRelease("b3", "8n");
+      const pop =    torreB.pop() 
+      synth.triggerAttackRelease(sounds[pop.diameter]+"4", "8n");
 
-          setAux ([torreB.pop()])
+          setAux ([pop])
           setTorreB(torreB)
         
     }
     }else{
       if( torreB.length === 0 || torreB[torreB.length-1].diameter > aux[0].diameter){ 
       torreB.push(aux[0])
-      synth.triggerAttackRelease("e3", "8n");
+
+
+      synth.triggerAttackRelease(sounds[aux[0].diameter]+"3", "8n");
+
       setMoveCount(moveCount + 1)
       setTorreB(torreB)
       setAux([])
@@ -147,8 +151,10 @@ const synth3 = new Tone.Synth().toMaster();
 
       if(torreC.length > 0){ 
 
-      synth.triggerAttackRelease("a3", "8n");
-      setAux ([torreC.pop()])
+      const pop =    torreC.pop() 
+      synth.triggerAttackRelease(sounds[pop.diameter]+"4", "8n");
+
+      setAux ([pop])
       setTorreC(torreC)
     }
     }else{
@@ -156,8 +162,9 @@ const synth3 = new Tone.Synth().toMaster();
       if( torreC.length === 0 || torreC[torreC.length-1].diameter > aux[0].diameter){ 
             torreC.push(aux[0])
 
-            synth.triggerAttackRelease("c3", "8n");
 
+
+      synth.triggerAttackRelease(sounds[aux[0].diameter]+"3", "8n");
             setMoveCount(moveCount + 1)
             setTorreC(torreC)
             setAux([])
@@ -200,6 +207,19 @@ const synth3 = new Tone.Synth().toMaster();
     }
     else if (torreB.length === 6) {
       alert('😮😮😮 movimientos:' + moveCount)
+
+
+      synth.triggerAttackRelease("c4", "8n");
+
+      synth2.triggerAttackRelease("e4", "8n");
+      synth3.triggerAttackRelease("g4", "8n");
+
+
+      synth.triggerAttackRelease("g3", "8n");
+
+      synth2.triggerAttackRelease("e3", "8n");
+      synth3.triggerAttackRelease("c3", "8n");
+
       setMoveCount(0)
       setIlloRotation({x:TAU/4})
     }
