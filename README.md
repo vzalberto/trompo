@@ -2,11 +2,13 @@
 
 [PLAY HERE](http://hanoi-dog.firebaseapp.com)
 
-### Nice to haves
+## Nice to haves
 
 • Accelerometer-based illo rotation to give a sense of depth https://www.npmjs.com/package/react-accelerometer
 • Proper global state management
 • Replace the alerts for better UX
+• An actual trompo de pastor https://codesandbox.io/s/immutable-wind-e1qgy
+• Randomly generated levels
 
 ```
 npm run build && rm -rf deploy/public/* && mv -rf build/* deploy/public/
