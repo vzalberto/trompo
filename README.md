@@ -1,6 +1,6 @@
-### A game using Zdog and React Hooks, deployed with Firebase Hosting.
+### A game using Zdog and React Hooks
 
-[PLAY HERE](trompodepastor.art)
+[PLAY HERE](https://trompodepastor.art)
 
 ## Nice to haves
 
