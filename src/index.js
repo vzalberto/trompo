@@ -229,7 +229,7 @@ const synth3 = new Tone.Synth().toMaster();
       setMoveCount(0)
       setIlloRotation({x:TAU/5})
     }
-
+  // eslint-disable-next-line
   }, [aux, torreA, torreB, torreC. initDiscos])
 
   return (
