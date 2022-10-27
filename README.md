@@ -2,6 +2,8 @@
 
 [PLAY HERE](https://beautiful-sunburst-68e259.netlify.app/)
 
+![image](https://user-images.githubusercontent.com/4513178/198380096-53390635-c661-46e3-a000-d238622ea331.png)
+
 ## Nice to haves
 
 • Accelerometer-based illo rotation to give a sense of depth https://www.npmjs.com/package/react-accelerometer  
