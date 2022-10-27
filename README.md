@@ -1,6 +1,6 @@
 ### A game using Zdog and React Hooks
 
-[PLAY HERE](https://trompodepastor.art)
+[PLAY HERE](https://beautiful-sunburst-68e259.netlify.app/)
 
 ## Nice to haves
 
